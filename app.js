@@ -17,7 +17,8 @@ app.use('/graphql', graphqlHttp({
 }))
 
 mongoose.connect(
-  `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@project0-trdi4.azure.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`
+  `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@project0-trdi4.azure.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`,
+  { useNewUrlParser: true }
 ).then(() => {
   app.listen(3000)
 })

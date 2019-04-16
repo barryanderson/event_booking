@@ -59,7 +59,7 @@ module.exports = {
       description: args.eventInput.description,
       price: +args.eventInput.price,
       date: new Date(args.eventInput.date),
-      creator: '5cb5ade4cfe22b142536b826'  // Hard coded user for now.
+      creator: '5cb5b41c7dbb3c173b20f440'  // Hard coded user for now.
     })
 
     let createdEvent = undefined
@@ -73,7 +73,7 @@ module.exports = {
       }
 
       // Get user and update user model with event.
-      const creator = await User.findById('5cb5ade4cfe22b142536b826')
+      const creator = await User.findById('5cb5b41c7dbb3c173b20f440')
       if (!creator) {
         throw new Error('User does not exist.')
       }
