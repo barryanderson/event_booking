@@ -10,7 +10,7 @@ const user = async (userId) => {
       _id: user.id,
       createdEvents: events.bind(this, user._doc.createdEvents)
     }
-  } catch(err) {
+  } catch (err) {
     console.log(err)
     throw err
   }
@@ -18,11 +18,11 @@ const user = async (userId) => {
 
 const events = async (eventIds) => {
   try {
-    const events = await Event.find({_id: {$in: eventIds}})
+    const events = await Event.find({ _id: { $in: eventIds } })
     return events.map((event) => {
       return transformEvent(event)
     })
-  } catch(err) {
+  } catch (err) {
     console.log(err)
     throw err
   }

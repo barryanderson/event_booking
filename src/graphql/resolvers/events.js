@@ -1,4 +1,5 @@
 const Event = require('../../models/event')
+const User = require('../../models/user')
 const { transformEvent } = require('./merge')
 const { dateToString } = require('../../helpers/date')
 
@@ -10,7 +11,7 @@ module.exports = {
       return events.map(event => {
         return transformEvent(event)
       })
-    } catch(err) {
+    } catch (err) {
       console.log(err)
       throw err
     }
@@ -21,10 +22,10 @@ module.exports = {
       description: args.eventInput.description,
       price: +args.eventInput.price,
       date: dateToString(args.eventInput.date),
-      creator: '5cb5b41c7dbb3c173b20f440'  // Hard coded user for now.
+      creator: '5cb5b41c7dbb3c173b20f440' // Hard coded user for now.
     })
 
-    let createdEvent = undefined
+    let createdEvent
     try {
       const result = await event.save()
       createdEvent = transformEvent(result)
@@ -38,7 +39,7 @@ module.exports = {
       await creator.save()
 
       return createdEvent
-    } catch(err) {
+    } catch (err) {
       console.log(err)
       throw err
     }
